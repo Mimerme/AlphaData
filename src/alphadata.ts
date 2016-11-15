@@ -130,5 +130,4 @@ class alphaDataBase{
     return this;
   }
 }
-
-export default alphaDataBase;
+module.exports = alphaDataBase;

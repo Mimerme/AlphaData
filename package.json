@@ -1,7 +1,9 @@
 {
   "name": "alphadata",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
+  "description":"JS database for desktop apps",
+  "main":"./alphadata.js",
   "scripts":{
     "test":"mocha"
   },

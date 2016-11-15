@@ -120,6 +120,5 @@ class alphaDataBase {
         return this;
     }
 }
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = alphaDataBase;
+module.exports = alphaDataBase;
 //# sourceMappingURL=alphadata.js.map
