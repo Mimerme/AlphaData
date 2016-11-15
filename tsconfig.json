@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es6",
+        "noImplicitAny": false,
+        "sourceMap": true,
+        "outDir": "./compiled/"
+    },
+    "files":[
+        "./src/alphadata.ts"
+    ],
+    "exclude": [
+        "node_modules"
+    ],
+    "node": {
+     "fs": "empty"
+    }
+}
