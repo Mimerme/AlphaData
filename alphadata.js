@@ -76,13 +76,21 @@ class alphaDataBase {
         });
         return this;
     }
-    getSelected() {
+    getSelected(fields) {
         let this_reference = this;
         let keys = Object.keys(this_reference.internal_selected_items);
         let obj_to_return = [];
         keys.forEach((key) => {
             this_reference.internal_selected_items[key].forEach((val) => {
-                obj_to_return.push(this_reference.internal_obj[key][val]);
+                if (fields !== undefined && fields.length > 0 && Array.isArray(fields)) {
+                    let obj_with_selected = {};
+                    fields.forEach((field) => {
+                        obj_with_selected[field] = this_reference.internal_obj[key][val][field];
+                    });
+                    obj_to_return.push(obj_with_selected);
+                }
+                else
+                    obj_to_return.push(this_reference.internal_obj[key][val]);
             });
         });
         return obj_to_return;

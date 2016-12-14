@@ -1,6 +1,6 @@
 "use strict"
 const assert = require("chai").assert;
-const database = require("../compiled/alphadata.js").default;
+const database = require("../alphadata.js");
 const path = require("path");
 const fs = require("fs");
 
@@ -58,6 +58,7 @@ describe("Items",()=>{
     assert.equal(db.select((table)=>{
       return(table.indexOf("ItemGet")!=-1);
     }).getSelected().length,20);
+    assert.equal(Object.keys(db.select("ItemGet").getSelected(["num"])[0]).length,1);
   })
   db.write();
 });
@@ -67,3 +68,5 @@ describe("Writing",()=>{
     fs.unlinkSync(location);  
   })
 })
+
+

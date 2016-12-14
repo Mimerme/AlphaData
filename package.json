@@ -1,19 +1,20 @@
 {
   "name": "alphadata",
-  "version": "1.0.1",
+  "version": "1.0.5",
   "license": "MIT",
-  "description":"JS database for desktop apps",
-  "main":"./alphadata.js",
-  "scripts":{
-    "test":"mocha"
+  "description": "JS database for desktop apps",
+  "main": "./alphadata.js",
+  "scripts": {
+    "test": "mocha",
+    "build":"tsc"
   },
   "dependencies": {
     "lodash": "^4.16.4",
     "mkdirp": "^0.5.1"
   },
   "devDependencies": {
-    "typescript": "^2.0.9",
     "chai": "^3.5.0",
-    "mocha": "^3.1.2"
+    "mocha": "^3.1.2",
+    "typescript": "^2.0.9"
   }
 }
