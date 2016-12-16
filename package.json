@@ -5,8 +5,8 @@
   "description": "JS database for desktop apps",
   "main": "./alphadata.js",
   "scripts": {
-    "test": "mocha",
-    "build":"tsc"
+    "test": "./node_modules/mocha/bin/mocha",
+    "build": "tsc"
   },
   "dependencies": {
     "lodash": "^4.16.4",
@@ -14,7 +14,11 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
-    "mocha": "^3.1.2",
+    "mocha": "^3.2.0",
     "typescript": "^2.0.9"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ReedKrawiec/AlphaData.git"
   }
 }

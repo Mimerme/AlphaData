@@ -46,7 +46,10 @@ describe("Items",()=>{
     assert.equal(db.where((obj)=>obj.id === -1).getSelected().length,3);
   })
   it("gets items",()=>{
-    db.initTables(["ItemGet","ItemGet2"]);
+    db.initTables(["ItemGet","ItemGet2",{name:"ItemGet3",scheme:{
+      data1:"string",
+      data2:"number"
+    }}]);
     for(let a = 0;a<10;a++){
       db.select("ItemGet").insert({id:a,num:Math.random()*a});
       db.select("ItemGet2").insert({table:"ItemGet2"})
@@ -60,12 +63,29 @@ describe("Items",()=>{
     }).getSelected().length,20);
     assert.equal(Object.keys(db.select("ItemGet").getSelected(["num"])[0]).length,1);
   })
+  it("vertifies datatypes with schemes.",()=>{
+    db.initTables([{name:"Scheme1",scheme:{
+      data1:"string",
+      data2:"number"
+    }},
+    {name:"Scheme2",scheme:{
+      data1:"string",
+      data2:"number"
+    }},
+   ])
+    assert.throws(()=>{db.select("Scheme1").insert({data1:5,data2:"5"})},Error);
+    assert.doesNotThrow(()=>{db.select("Scheme1").insert({data1:"5",data2:5})},Error);
+  })
   db.write();
 });
 describe("Writing",()=>{
   it("writes to file",()=>{
     assert.equal(fs.existsSync(location),true);
-    fs.unlinkSync(location);  
+    fs.unlinkSync(location);
+  })
+  it("writes schemes to file",()=>{
+    assert.equal(fs.existsSync(path.join(path.dirname(location),"schemes.sch")),true);
+    fs.unlinkSync(path.join(path.dirname(location),"schemes.sch"));
   })
 })
 
