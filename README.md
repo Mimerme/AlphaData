@@ -11,8 +11,17 @@ let db = new database(path.join(__dirname,"data","mainfile.db"));
 Pass the entire file path to the file you want to store your database in. Include file extension.
 ## Init tables
 ```
-db.initTables(["testing","testing2","whatface","lol"]);
+db.initTables([{name:"testing"},{name:"testing2"},"testing3"]);
+db.initTables([{name:"testing4",scheme:{
+    data1:"number",
+    data2:"string"
+}},{name:"testing5",scheme:{
+    data1:"string",
+    data2:"number"
+}}])
 ```
+You init tables by passing an array of strings and or table objects to the `initTables()`.
+Table objects have a name property, which determines the table name, and a scheme property, which is an object defining the types of the properties of that table.
 
 ## Select tables
 ```
